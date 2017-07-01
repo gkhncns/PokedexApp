@@ -41,6 +41,7 @@
                             </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="PPD-qn-UZ1">
                                 <rect key="frame" x="20" y="129" width="335" height="518"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="IzR-o3-OUW">
                                     <size key="itemSize" width="85" height="85"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -55,7 +56,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="85" height="85"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1" translatesAutoresizingMaskIntoConstraints="NO" id="ZuV-y7-alD">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1" translatesAutoresizingMaskIntoConstraints="NO" id="ZuV-y7-alD">
                                                     <rect key="frame" x="0.0" y="0.0" width="85" height="65"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="65" id="Z4R-E9-Lii"/>
@@ -107,6 +108,9 @@
                             <constraint firstItem="bLS-GA-dFu" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="vZJ-ag-6tw"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="pokemonsCollection" destination="PPD-qn-UZ1" id="z73-Bw-EJ0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
