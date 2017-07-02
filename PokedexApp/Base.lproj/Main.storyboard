@@ -30,7 +30,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pokédex" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EbZ-uu-t7W">
-                                        <rect key="frame" x="140" y="16" width="95" height="49"/>
+                                        <rect key="frame" x="140.5" y="16" width="95" height="49"/>
                                         <fontDescription key="fontDescription" name="PokemonSolidNormal" family="Pokemon Solid" pointSize="25"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -57,7 +57,7 @@
                                     <constraint firstAttribute="bottom" secondItem="ONm-bj-D6v" secondAttribute="bottom" constant="8" id="x4F-1W-bfI"/>
                                 </constraints>
                             </view>
-                            <searchBar contentMode="redraw" searchBarStyle="prominent" translatesAutoresizingMaskIntoConstraints="NO" id="beG-n3-pyT">
+                            <searchBar contentMode="redraw" searchBarStyle="prominent" placeholder="Search Pokémon" translatesAutoresizingMaskIntoConstraints="NO" id="beG-n3-pyT">
                                 <rect key="frame" x="0.0" y="65" width="375" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="BDx-O5-aZ9"/>
@@ -138,6 +138,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="pokemonSearchBar" destination="beG-n3-pyT" id="87x-RN-RJR"/>
                         <outlet property="pokemonsCollection" destination="PPD-qn-UZ1" id="z73-Bw-EJ0"/>
                     </connections>
                 </viewController>

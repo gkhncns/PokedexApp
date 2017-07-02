@@ -9,20 +9,27 @@
 import UIKit
 import AVFoundation
 
-class PokedexVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class PokedexVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
     
     @IBOutlet weak var pokemonsCollection: UICollectionView!
+    @IBOutlet weak var pokemonSearchBar: UISearchBar!
     
     var pokemons: [Pokemon]!
+    var fileteredPokemons = [Pokemon]()
     var musicPlayer: AVAudioPlayer!
+    
+    var inSearchMode: Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         pokemonsCollection.delegate = self
         pokemonsCollection.dataSource = self
+        pokemonSearchBar.delegate = self
         
         pokemons = [Pokemon]()
+        
+        pokemonSearchBar.returnKeyType = .go
         
         parsePokemonCSV()
         initAudio()
@@ -77,8 +84,15 @@ class PokedexVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
         
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PokeCell", for: indexPath) as? PokeCell {
             
-            let pokemon = pokemons[indexPath.row]
-            cell.configureCell(pokemon: pokemon)
+            if inSearchMode == true {
+                
+                let pokemon = fileteredPokemons[indexPath.row]
+                cell.configureCell(pokemon: pokemon)
+            } else {
+                
+                let pokemon = pokemons[indexPath.row]
+                cell.configureCell(pokemon: pokemon)
+            }
             
             return cell
             
@@ -95,6 +109,10 @@ class PokedexVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
+        if inSearchMode == true {
+            return fileteredPokemons.count
+        }
+        
         return pokemons.count
     }
     
@@ -106,6 +124,32 @@ class PokedexVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         return CGSize(width: 85, height: 85)
+    }
+    
+    // MARK: - SearchBar Functions
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        if pokemonSearchBar.text == nil || pokemonSearchBar.text == "" {
+            
+            inSearchMode = false
+            pokemonsCollection.reloadData()
+            
+            view.endEditing(true)
+        } else {
+            
+            inSearchMode = true
+            
+            let lower = pokemonSearchBar.text!.lowercased()
+            
+            fileteredPokemons = pokemons.filter({$0.name.range(of: lower) != nil})
+            pokemonsCollection.reloadData()
+        }
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
+        view.endEditing(true)
     }
     
     // MARK: - IBAction Functions
