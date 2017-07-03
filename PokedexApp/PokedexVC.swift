@@ -105,6 +105,15 @@ class PokedexVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         // Forward to related page
+        var pokemon: Pokemon!
+        
+        if inSearchMode {
+            pokemon = fileteredPokemons[indexPath.row]
+        } else {
+            pokemon = pokemons[indexPath.row]
+        }
+        
+        performSegue(withIdentifier: "PokemonDetailVC", sender: pokemon)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -164,6 +173,18 @@ class PokedexVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
             
             musicPlayer.play()
             sender.alpha = 1.0
+        }
+    }
+    
+    // MARK: - Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "PokemonDetailVC" {
+            if let detailVC = segue.destination as? PokemonDetailVC {
+                if let pokemon = sender as? Pokemon {
+                    detailVC.pokemon = pokemon
+                }
+            }
         }
     }
 

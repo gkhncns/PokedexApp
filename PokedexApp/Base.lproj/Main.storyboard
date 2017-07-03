@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -30,7 +31,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pokédex" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EbZ-uu-t7W">
-                                        <rect key="frame" x="140.5" y="16" width="95" height="49"/>
+                                        <rect key="frame" x="140" y="16" width="95" height="49"/>
                                         <fontDescription key="fontDescription" name="PokemonSolidNormal" family="Pokemon Solid" pointSize="25"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -140,11 +141,50 @@
                     <connections>
                         <outlet property="pokemonSearchBar" destination="beG-n3-pyT" id="87x-RN-RJR"/>
                         <outlet property="pokemonsCollection" destination="PPD-qn-UZ1" id="z73-Bw-EJ0"/>
+                        <segue destination="2VS-eV-IbQ" kind="show" identifier="PokemonDetailVC" id="jVJ-c6-G3t"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="28" y="34.632683658170919"/>
+        </scene>
+        <!--Pokemon DetailVC-->
+        <scene sceneID="Jdl-Tg-rG1">
+            <objects>
+                <viewController id="2VS-eV-IbQ" customClass="PokemonDetailVC" customModule="PokedexApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="IY9-wN-hMv"/>
+                        <viewControllerLayoutGuide type="bottom" id="lKH-OC-wim"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="nTh-5l-jqX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ogc-ai-dU9">
+                                <rect key="frame" x="16" y="306" width="343" height="55"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="55" id="k0c-s4-O4I"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Ogc-ai-dU9" firstAttribute="centerY" secondItem="nTh-5l-jqX" secondAttribute="centerY" id="2MX-N0-hnV"/>
+                            <constraint firstItem="Ogc-ai-dU9" firstAttribute="centerX" secondItem="nTh-5l-jqX" secondAttribute="centerX" id="AAz-5S-5JN"/>
+                            <constraint firstItem="Ogc-ai-dU9" firstAttribute="leading" secondItem="nTh-5l-jqX" secondAttribute="leadingMargin" id="Dc6-1D-y8t"/>
+                            <constraint firstItem="Ogc-ai-dU9" firstAttribute="trailing" secondItem="nTh-5l-jqX" secondAttribute="trailingMargin" id="ZVR-VW-eJv"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="label" destination="Ogc-ai-dU9" id="ZAh-xu-2SV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FJK-Zq-qbl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="852" y="34.632683658170919"/>
         </scene>
     </scenes>
     <resources>
