@@ -31,7 +31,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pokédex" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EbZ-uu-t7W">
-                                        <rect key="frame" x="140" y="16" width="95" height="49"/>
+                                        <rect key="frame" x="140.5" y="16" width="95" height="49"/>
                                         <fontDescription key="fontDescription" name="PokemonSolidNormal" family="Pokemon Solid" pointSize="25"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -160,27 +160,57 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ogc-ai-dU9">
-                                <rect key="frame" x="16" y="306" width="343" height="55"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TK4-4L-FIW">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Pokédex" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ITJ-24-Vpl">
+                                        <rect key="frame" x="140.5" y="16" width="95" height="49"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="PokemonSolidNormal" family="Pokemon Solid" pointSize="25"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eGI-yY-K2a">
+                                        <rect key="frame" x="8" y="29" width="28" height="28"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="28" id="SDK-bu-z37"/>
+                                            <constraint firstAttribute="width" constant="28" id="c2f-Ii-ZMf"/>
+                                        </constraints>
+                                        <state key="normal" image="back"/>
+                                        <connections>
+                                            <action selector="musicButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Qul-MR-Hba"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="0.34509803919999998" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="55" id="k0c-s4-O4I"/>
+                                    <constraint firstItem="eGI-yY-K2a" firstAttribute="leading" secondItem="TK4-4L-FIW" secondAttribute="leading" constant="8" id="EgQ-qv-GLD"/>
+                                    <constraint firstAttribute="bottom" secondItem="eGI-yY-K2a" secondAttribute="bottom" constant="8" id="PWu-zp-siT"/>
+                                    <constraint firstAttribute="height" constant="65" id="bLP-qR-TKQ"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            </view>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="pGU-pc-erU">
+                                <rect key="frame" x="16" y="73" width="343" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="5Q9-t9-1Rb"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Bio"/>
+                                    <segment title="Moves"/>
+                                </segments>
+                                <color key="tintColor" red="1" green="0.34509803919999998" blue="0.33333333329999998" alpha="1" colorSpace="calibratedRGB"/>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Ogc-ai-dU9" firstAttribute="centerY" secondItem="nTh-5l-jqX" secondAttribute="centerY" id="2MX-N0-hnV"/>
-                            <constraint firstItem="Ogc-ai-dU9" firstAttribute="centerX" secondItem="nTh-5l-jqX" secondAttribute="centerX" id="AAz-5S-5JN"/>
-                            <constraint firstItem="Ogc-ai-dU9" firstAttribute="leading" secondItem="nTh-5l-jqX" secondAttribute="leadingMargin" id="Dc6-1D-y8t"/>
-                            <constraint firstItem="Ogc-ai-dU9" firstAttribute="trailing" secondItem="nTh-5l-jqX" secondAttribute="trailingMargin" id="ZVR-VW-eJv"/>
+                            <constraint firstAttribute="trailing" secondItem="TK4-4L-FIW" secondAttribute="trailing" id="6XP-Ow-CKe"/>
+                            <constraint firstItem="TK4-4L-FIW" firstAttribute="top" secondItem="IY9-wN-hMv" secondAttribute="bottom" constant="-20" id="CWK-ii-P6A"/>
+                            <constraint firstItem="pGU-pc-erU" firstAttribute="leading" secondItem="nTh-5l-jqX" secondAttribute="leadingMargin" id="KCb-36-agZ"/>
+                            <constraint firstItem="pGU-pc-erU" firstAttribute="trailing" secondItem="nTh-5l-jqX" secondAttribute="trailingMargin" id="Lje-zX-bdo"/>
+                            <constraint firstItem="TK4-4L-FIW" firstAttribute="leading" secondItem="nTh-5l-jqX" secondAttribute="leading" id="MKT-bd-L4z"/>
+                            <constraint firstItem="pGU-pc-erU" firstAttribute="top" secondItem="TK4-4L-FIW" secondAttribute="bottom" constant="8" id="jgf-mk-YBx"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <outlet property="label" destination="Ogc-ai-dU9" id="ZAh-xu-2SV"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FJK-Zq-qbl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -189,6 +219,7 @@
     </scenes>
     <resources>
         <image name="1" width="96" height="96"/>
+        <image name="back" width="100" height="67"/>
         <image name="bg" width="1920" height="1200"/>
         <image name="music" width="100" height="100"/>
     </resources>
